@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <script src="files/beehivedata.js"></script>
+  <script src="files/jquery-2.1.4.min.js"></script>
+  <script src="files/jquery-ui-1.11.4.min.js"></script>
+  <script src="files/devkit.js"></script>
+  <style>
+    #Exporter9000{
+      width: 900px;
+      margin: 0 auto;
+      font-family: tahoma;
+    }
+    #Result {
+      width: 100%;
+      min-height: 500px;
+    }
+  </style>
+
+<head>
+<body>
+  <div id="Exporter9000">
+    <h1>Экспортёр 9001</h1>
+    <p>Экспортирует данные в CSV формат.</p>
+    <textarea id="Result"></textarea>
+    <script>
+      // Сперва делаем плоский массив
+      exportdata = [];
+      for( gr in BeehiveData) {
+        let grname = BeehiveData[gr].name;
+        for( gritem in BeehiveData[gr].data) {
+          let gritemdata =  BeehiveData[gr].data[gritem];
+          for(honey in gritemdata.data){
+            let notes = gritemdata.data[honey][2];
+            if (notes == undefined) {
+              notes = '';
+            }
+            exportdata.push({
+              'Group': grname,
+              'Title': gritemdata.name,
+              'Username': gritemdata.data[honey][0],
+              'Password': gritemdata.data[honey][1],
+              'URL': gritemdata.url,
+              'Notes': notes
+            });
+          }
+        }
+      }
+      var exportdataastext = '';
+      exportdataastext += '"Group","Title","Username","Password","URL","Notes"\n';
+      for (k in exportdata) {
+        let item = exportdata[k];
+        exportdataastext += '"' + item.Group + '","' + item.Title + '","' + item.Username + '","' + item.Password + '","' + item.URL + '","' + item.Notes + '"\n';
+      }
+      $('#Result').text(exportdataastext);
+      //console.log(exportdata);
+    </script>
+  </div>
+</body>
+</html>

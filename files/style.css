@@ -1,0 +1,190 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:300,400,700,400italic&subset=cyrillic,cyrillic-ext);
+input:focus, textarea:focus, select:focus { outline: 0 none;}
+html, body { height: 100%;}
+body {
+  font: 14px 'Roboto', Verdana, Arial, Tahoma; background: #ddd; color: #6e6e6e; font-weight: 400; overflow-y: scroll;
+  margin: 0;
+}
+#Login {
+  width: 100%; height: 100%;
+  display: table;
+}
+#Login > div {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+#Login > div > div{
+  width: 318px;
+  height: 318px;
+  margin: 0 auto;
+  background: url(bee.png);
+}
+#Login input {
+  margin-top: 142px;
+  font-size: 38px;
+  text-align: center;
+  width: 100px;
+  padding: 0;
+  background: none;
+  border: 0;
+  color: #fff;
+}
+#Beehive {
+  width: 470px;
+  margin: 0 auto;
+}
+#BeehiveSrch {
+  background: #fff;
+  padding: 14px;
+  margin-bottom: 30px;
+  box-shadow: 0px 2px 5px 0px rgba(0,0,0,.3);
+}
+
+#BeehiveSrch .content .Honeycell:first-child {
+  margin-top: 26px;
+}
+#BeehiveSrchInp {
+  border: none;
+  border-bottom: 1px solid #b5b5b5;
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+  font-size: 16px;
+  padding: 5px 0;
+  color: #565656;
+}
+#BeehiveSrchInp:focus {
+  border-bottom-color: #9e5415;
+  color: #c36019;
+}
+#BeehiveData {
+
+}
+.Honeycumb  {
+  background: #fff;
+  box-shadow: 0px 2px 5px 0px rgba(0,0,0,.3);
+  position: relative;
+}
+.Honeycumb:before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  height: 1px;
+  left: 0;
+  right: 0;
+  background: #fff;
+}
+.HoneycumbColumnL, .HoneycumbColumnR {
+  opacity: .2;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  display: none;
+}
+.opnd .HoneycumbColumnL, .opnd .HoneycumbColumnR {
+  display: block;
+}
+.HoneycumbColumnL { left: -4px;}
+.HoneycumbColumnR { right: -4px;}
+
+.Honeycumb.opnd { margin: 30px -30px;}
+
+.HoneycumbHeader {
+  position: relative;
+}
+.Honeycumb:hover  .HoneycumbColumnL, .Honeycumb:hover  .HoneycumbColumnR {
+  display: block;
+}
+.HoneycumbTitle {
+  padding: 8px 14px;
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 30px;
+  cursor: pointer;
+}
+.HoneycumbContent {
+  display: none;
+  padding: 16px 14px;
+  border-top: 1px solid #e5e5e5;
+}
+.Honeycumb.opnd .HoneycumbContent { display: block;}
+.HoneycumbContentEmpty { color: #b6b6b6; text-align: center; display: block;}
+.Honeycell + .HoneycumbContentEmpty { display: none;}
+
+
+.Honeycell { margin-top: 22px;}
+.Honeycell:first-child { margin-top: 0;}
+
+.HoneycellHeader {
+  margin-bottom: 16px;
+  display: flex;
+  align-items: stretch;
+  position: relative;
+}
+.HoneycellHeader a {
+  color: #4885D3;
+  text-decoration: none;
+  font-size: 18px;
+  display: inline-block;
+  font-weight: 300;
+}
+
+.Honey {
+  margin-bottom: 14px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.Honey input {
+  flex-grow: 1;
+  font-family: monospace;
+  border: none;
+  border: 1px solid #e5e5e5;
+  border-radius: 2px;
+  padding: 8px;
+  color: #6e6e6e;
+  margin-right: 6px;
+  box-sizing: border-box;
+}
+.HoneyComment {
+  padding: 8px;
+  border: 1px solid #e5e5e5;
+  border-radius: 2px;
+  margin-top: 6px;
+  display: none;
+  width: 100%;
+}
+.showHoneyComment {
+  border: 1px solid #e5e5e5;
+  border-radius: 2px;
+  width: 14px;
+  flex-grow: 0;
+  cursor: pointer;
+  position: relative;
+  box-sizing: border-box;
+}
+.showHoneyComment:after {
+  content: '';
+  background: url(more_vertical.png) center center no-repeat;
+  opacity: .2;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+}
+.showHoneyComment.nth:after {
+  background: none;
+  cursor: default;
+}
+.showHoneyComment:hover:after, .showHoneyComment.opnd:after { opacity: 1;}
+#BeehiveCopy {
+  padding: 16px 0;
+  text-align: center;
+  color: #bdbdbd;
+  font-family: monospace;
+}

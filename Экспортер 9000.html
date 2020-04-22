@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <script src="beehivedata.js"></script>
+  <script src="files/jquery-2.1.4.min.js"></script>
+  <script src="files/jquery-ui-1.11.4.min.js"></script>
+  <script src="files/devkit.js"></script>
+  <style>
+    #Exporter9000{
+      width: 900px;
+      margin: 0 auto;
+      font-family: tahoma;
+    }
+    #Result {
+      width: 100%;
+      min-height: 500px;
+    }
+  </style>
+
+<head>
+<body>
+  <div id="Exporter9000">
+    <h1>Экспортёр 9000</h1>
+    <p>Изготовлено по стандартам халтуркодинга.</p>
+    <textarea id="Result"></textarea>
+    <script>
+    var renderHoneys = function(data){
+      newHoneys = '';
+      for (item in data){
+        if (data[item][2] == undefined ){
+          newHoneys += '[\'' + data[item][0] + '\', \'' + data[item][1] + '\'], ';
+        }else{
+          newHoneys += '[\'' + data[item][0] + '\', \'' + data[item][1] + '\', \'' + data[item][2] + '\'], ';
+        }
+        
+      }
+      return newHoneys.slice(0, -2);
+      //return newHoneys;
+    }
+    
+    var renderHoneycumb = function(data){
+      newHoneycells = '';
+      for (HoneycellName in data) {
+        newHoneycells += '\
+\n      {\
+\n        name: \'' + HoneycellName + '\',\
+\n        url: \'' + data[HoneycellName].params.addr + '\',\
+\n        data: [' + renderHoneys(data[HoneycellName].data) + ']\
+\n      },';
+      }
+      return newHoneycells.slice(0, -1);
+    }
+    
+    var NewBeehive = 'var Beekeeper = \'' + Beekeeper + '\';\nvar BeehiveData = [\n';
+    for (HoneycumbName in Beehive) {
+    NewBeehive += '\
+  {\
+\n    name: \'' + HoneycumbName + '\',\
+\n    color: \'' + Beehive[HoneycumbName].params.color + '\',\
+\n    data: [\
+' + renderHoneycumb(Beehive[HoneycumbName].data) + '\
+\n    ]\
+\n  },\n';
+    };
+    NewBeehive  = NewBeehive.slice(0, -2) + '\n];';
+    $('#Result').text('Приступаем...');
+    setTimeout(function(){
+      $('#Result').text('Потрошим старый улей...');
+    },2000);
+    setTimeout(function(){
+      $('#Result').text('Переселяем пчел...');
+    },5000);
+    setTimeout(function(){
+      $('#Result').text('Переносим мёд...');
+    },8000);
+    setTimeout(function(){
+      $('#Result').text('Почти готово!');
+    },10000);
+    setTimeout(function(){
+      $('#Result').text(NewBeehive);
+    },13000);
+  </script>
+  </div>
+</body>
+</html>
